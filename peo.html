@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>joke-teller</title>
+    <link rel="icon" href="https://lh3.googleusercontent.com/ogw/ADGmqu-t4SjxY4Ie8AO20govlZr2aRd8b66T9sL48xyx=s32-c-mo" type="image/png">
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+html{
+    box-sizing: border-box;
+}
+body{
+    margin:0;
+    padding:0;
+    background:#433542;
+}
+.container{
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+h1{
+    font-size: 3rem;
+    color:white;
+    font-family: 'Bangers', cursive;
+    margin-bottom: 0;
+}
+button{
+    cursor: pointer;
+    outline: none;
+    width:200px;
+    height: 50px;
+    font-family: monospace,sans-serif;
+    font-size: 20px;
+    color:white;
+    background:#bbae1d;
+    box-shadow: 2px 2px 20px 10px rgba(0,0,0, 0.5);
+}
+button:hover{
+    filter:brightness(90%);
+}
+button:active{
+    transform: scale(0.95);
+}
+button:disabled{
+    cursor: default;
+    filter: brightness(30%);
+
+}
+@media screen and (max-width:1000px){
+    .container{
+        background-size: cover;
+        background-position: center center;
+    }
+    button{
+        box-shadow: 5px 5px 20px 10px rgba(0,0,0, 0.6);
+    }
+}
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Have some fun here</h1>
+        <img id="man" src="https://c.tenor.com/KC5HIotG-bgAAAAd/cute-robot.gif" alt="man">
+        <button id="button">Tell me a JOKE</button>
+        <audio id="audio" controls hidden></audio>
+    </div>
+    
+    <script>
+        
+
+"use strict";var VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate:function(e){if(!e)throw"The settings are undefined";if(!e.key)throw"The API key is undefined";if(!e.src)throw"The text is undefined";if(!e.hl)throw"The language is undefined";if(e.c&&"auto"!=e.c.toLowerCase()){var a=!1;switch(e.c.toLowerCase()){case"mp3":a=(new Audio).canPlayType("audio/mpeg").replace("no","");break;case"wav":a=(new Audio).canPlayType("audio/wav").replace("no","");break;case"aac":a=(new Audio).canPlayType("audio/aac").replace("no","");break;case"ogg":a=(new Audio).canPlayType("audio/ogg").replace("no","");break;case"caf":a=(new Audio).canPlayType("audio/x-caf").replace("no","")}if(!a)throw"The browser does not support the audio codec "+e.c}},_request:function(e){var a=this._buildRequest(e),t=this._getXHR();t.onreadystatechange=function(){if(4==t.readyState&&200==t.status){if(0==t.responseText.indexOf("ERROR"))throw t.responseText;new Audio(t.responseText).play()}},t.open("POST","https://api.voicerss.org/",!0),t.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8"),t.send(a)},_buildRequest:function(e){var a=e.c&&"auto"!=e.c.toLowerCase()?e.c:this._detectCodec();return"key="+(e.key||"")+"&src="+(e.src||"")+"&hl="+(e.hl||"")+"&v="+(e.v||"")+"&r="+(e.r||"")+"&c="+(a||"")+"&f="+(e.f||"")+"&ssml="+(e.ssml||"")+"&b64=true"},_detectCodec:function(){var e=new Audio;return e.canPlayType("audio/mpeg").replace("no","")?"mp3":e.canPlayType("audio/wav").replace("no","")?"wav":e.canPlayType("audio/aac").replace("no","")?"aac":e.canPlayType("audio/ogg").replace("no","")?"ogg":e.canPlayType("audio/x-caf").replace("no","")?"caf":""},_getXHR:function(){try{return new XMLHttpRequest}catch(e){}try{return new ActiveXObject("Msxml3.XMLHTTP")}catch(e){}try{return new ActiveXObject("Msxml2.XMLHTTP.6.0")}catch(e){}try{return new ActiveXObject("Msxml2.XMLHTTP.3.0")}catch(e){}try{return new ActiveXObject("Msxml2.XMLHTTP")}catch(e){}try{return new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}throw"The browser does not support HTTP request"}};
+
+
+
+
+
+const button = document.getElementById("button");
+const audioElement = document.getElementById("audio");
+const img = document.getElementById("man");
+const key='fdb5174046d341bdb6bc075c7c9e9369';
+
+("use strict");
+
+var VoiceRSS = {
+  speech: function (e) {
+    this._validate(e), this._request(e);
+  },
+  _validate: function (e) {
+    if (!e) throw "The settings are undefined";
+    if (!e.key) throw "The API key is undefined";
+    if (!e.src) throw "The text is undefined";
+    if (!e.hl) throw "The language is undefined";
+    if (e.c && "auto" != e.c.toLowerCase()) {
+      var a = !1;
+      switch (e.c.toLowerCase()) {
+        case "mp3":
+          a = new Audio().canPlayType("audio/mpeg").replace("no", "");
+          break;
+        case "wav":
+          a = new Audio().canPlayType("audio/wav").replace("no", "");
+          break;
+        case "aac":
+          a = new Audio().canPlayType("audio/aac").replace("no", "");
+          break;
+        case "ogg":
+          a = new Audio().canPlayType("audio/ogg").replace("no", "");
+          break;
+        case "caf":
+          a = new Audio().canPlayType("audio/x-caf").replace("no", "");
+      }
+      if (!a) throw "The browser does not support the audio codec " + e.c;
+    }
+  },
+  _request: function (e) {
+    var a = this._buildRequest(e),
+      t = this._getXHR();
+    (t.onreadystatechange = function () {
+      if (4 == t.readyState && 200 == t.status) {
+        if (0 == t.responseText.indexOf("ERROR")) throw t.responseText;
+        //new Audio(t.responseText).play();
+        audioElement.src = t.responseText;
+        audioElement.play();
+      }
+    }),
+      t.open("POST", "https://api.voicerss.org/", !0),
+      t.setRequestHeader(
+        "Content-Type",
+        "application/x-www-form-urlencoded; charset=UTF-8"
+      ),
+      t.send(a);
+  },
+  _buildRequest: function (e) {
+    var a = e.c && "auto" != e.c.toLowerCase() ? e.c : this._detectCodec();
+    return (
+      "key=" +
+      (e.key || "") +
+      "&src=" +
+      (e.src || "") +
+      "&hl=" +
+      (e.hl || "") +
+      "&v=" +
+      (e.v || "") +
+      "&r=" +
+      (e.r || "") +
+      "&c=" +
+      (a || "") +
+      "&f=" +
+      (e.f || "") +
+      "&ssml=" +
+      (e.ssml || "") +
+      "&b64=true"
+    );
+  },
+  _detectCodec: function () {
+    var e = new Audio();
+    return e.canPlayType("audio/mpeg").replace("no", "")
+      ? "mp3"
+      : e.canPlayType("audio/wav").replace("no", "")
+      ? "wav"
+      : e.canPlayType("audio/aac").replace("no", "")
+      ? "aac"
+      : e.canPlayType("audio/ogg").replace("no", "")
+      ? "ogg"
+      : e.canPlayType("audio/x-caf").replace("no", "")
+      ? "caf"
+      : "";
+  },
+  _getXHR: function () {
+    try {
+      return new XMLHttpRequest();
+    } catch (e) {}
+    try {
+      return new ActiveXObject("Msxml3.XMLHTTP");
+    } catch (e) {}
+    try {
+      return new ActiveXObject("Msxml2.XMLHTTP.6.0");
+    } catch (e) {}
+    try {
+      return new ActiveXObject("Msxml2.XMLHTTP.3.0");
+    } catch (e) {}
+    try {
+      return new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {}
+    try {
+      return new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (e) {}
+    throw "The browser does not support HTTP request";
+  },
+};
+
+//disable/enable button
+function toggleButton() {
+  button.disabled = !button.disabled;
+  animateGif();
+}
+
+//animate gif
+function animateGif() {
+  console.log(button.disabled);
+  if (button.disabled) {
+    img.src = "https://c.tenor.com/KC5HIotG-bgAAAAd/cute-robot.gif";
+  } else {
+    img.src = "man.png";
+  }
+}
+
+//passing joke to voice api
+function tellMe(joke) {
+  console.log("tell me:", joke);
+  //voicerss javascript api
+  VoiceRSS.speech({
+    key: key,
+    src: joke,
+    hl: "en-us",
+    v: "Mary",
+    r: 0,
+    c: "mp3",
+    f: "44khz_16bit_stereo",
+    ssml: false,
+  });
+}
+
+//get jokes from jokeapi
+async function getJokes() {
+  let joke = "";
+  const apiUrl =
+    "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    if (data.joke) {
+      joke = `${data.joke}`;
+    } else {
+      joke = data.joke;
+    }
+    //text-to-speech
+    tellMe(joke);
+    //disable button
+    toggleButton();
+    animateGif();
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+//event linstener
+button.addEventListener("click", getJokes);
+
+audioElement.addEventListener("ended", toggleButton);
+
+    </script>
+</body>
+</html>
